@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use App\Models\Task;
 use App\Models\TodoList;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
@@ -23,5 +24,14 @@ abstract class TestCase extends BaseTestCase
     public function makeTodoListColumn()
     {
         return TodoList::factory()->make();
+    }
+    public function createTask($args = [])
+    {
+        return Task::factory()->create($args);
+    }
+
+    public function makeTaskColumn()
+    {
+        return Task::factory()->make();
     }
 }

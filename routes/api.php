@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TodoListController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,4 +23,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('todo-list', TodoListController::class);
 
-
+Route::get('tasks', [TaskController::class, 'index'])->name('tasks.index');
+Route::post('tasks', [TaskController::class, 'store'])->name('tasks.store');
+Route::delete('tasks', [TaskController::class, 'destroy'])->name('tasks.destroy');
